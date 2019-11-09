@@ -2,7 +2,7 @@ function perform() {
     const args = Array.from(perform.arguments);
     const cb = args.pop();
     if (typeof cb === "function") {
-        const result = args.map(a => cb(a));
+        const result = cb(args);
         this.then = function (cb) {
             return perform(result, cb);
         };
